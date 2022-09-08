@@ -2,10 +2,10 @@ public class Employee {
     private final String surname;
     private final String name;
     private final String secondName;
-    private final String companyBranch;
+    private String companyBranch;
     private int salary;
     private static int counter;
-    private static int idOfEmployee;
+    private int idOfEmployee;
 
 
     public Employee(String surname, String name, String secondName, String companyBranch, int salary) {
@@ -14,13 +14,7 @@ public class Employee {
         this.secondName = secondName;
         this.companyBranch = companyBranch;
         this.salary = salary;
-        idOfEmployee = counterAdd();
-    }
-
-    static Employee[] employer = new Employee[10];
-
-    private int counterAdd() {
-        return counter++;
+        idOfEmployee = counter++;
     }
 
     public String getSurname() {
@@ -53,9 +47,9 @@ public class Employee {
 
     public static int getCounter() { return counter; }
 
-    public static int getIdOfEmployee() {
-        return idOfEmployee;
-    }
+    //public static int getLength() { return length; }
+
+    /*public static int getIdOfEmployee() { return idOfEmployee; }*/
 
     @Override
     public String toString() {
@@ -66,6 +60,5 @@ public class Employee {
                 "4. Отдел: " + companyBranch + '\n' +
                 "5. Зарплата " + (int) salary +
                 '.' + '\n' + "6. ID сотрудника: " + idOfEmployee;
-
     }
 }
