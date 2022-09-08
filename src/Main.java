@@ -14,27 +14,22 @@ public class Main {
         Employee vladimirMayakovskiy = new Employee("Маяковский", "Владимир", "Владимирович", "2", 300_500);
         employer[5] = vladimirMayakovskiy;
 
-        System.out.println(employer[4]);
-
-        System.out.println(employer.length);
-
 
         printStaffTable(employer); // Получить cписок всех сотрудников со всеми имеющимися по ним данными.
 
-        /*System.out.println("Сумма затрат на зарплаты в месяц: " + amountOfSalaryCostsPerMonth()+ " руб."); // Посчитать сумму затрат на зарплаты в месяц.
+        System.out.println("Сумма затрат на зарплаты в месяц: " + amountOfSalaryCostsPerMonth(employer) + " руб."); // Посчитать сумму затрат на зарплаты в месяц.
         System.out.println();
 
-        System.out.println("Сотрудник с минимальной зарплатой в месяц: " + staffWithMinSalary()); // Найти сотрудника с минимальной зарплатой.
+        System.out.println("Сотрудник с минимальной зарплатой в месяц: " + '\n' + staffWithMinSalary(employer)); // Найти сотрудника с минимальной зарплатой.
         System.out.println();
 
-        System.out.println("Сотрудник с максимальной зарплатой в месяц: " + staffWithMaxSalary()); // Найти сотрудника с максимальной зарплатой.
+        System.out.println("Сотрудник с максимальной зарплатой в месяц: " + '\n' + staffWithMaxSalary(employer)); // Найти сотрудника с максимальной зарплатой.
         System.out.println();
 
-        System.out.println("Среднее значение зарплат в месяц: " + averageSalaryPerMonth() + " руб."); // Подсчитать среднее значение зарплат.
+        System.out.println("Среднее значение зарплат в месяц: " + averageSalaryPerMonth(employer) + " руб."); // Подсчитать среднее значение зарплат.
         System.out.println();
 
-        printFullNameOfStaff(); // Получить Ф. И. О. всех сотрудников
-        */
+        printFullNameOfStaff(employer); // Получить Ф. И. О. всех сотрудников.
     }
 
     private static void printStaffTable(Employee[] employer) {
@@ -46,14 +41,16 @@ public class Main {
         for (int i = 0; i < employer.length; i++)
             if (employer[i] == null) {
                 System.out.println("ID сотрудника: " + (i + 1) + '\n' + "Позиция вакантна.");
+                System.out.println();
             } else {
                 System.out.println("ID сотрудника: " + (i + 1) + '\n' + employer[i]);
+                System.out.println();
             }
         System.out.println();
     }
 
-        /*
-        private static int amountOfSalaryCostsPerMonth() {
+
+    private static int amountOfSalaryCostsPerMonth(Employee[] employer) {
         int summary = 0;
         for (int i = 0; i < employer.length; i++) {
             if (employer[i] != null) {
@@ -61,53 +58,53 @@ public class Main {
             }
         }
         return summary;
-        }
+    }
 
-        private static String staffWithMinSalary() {
-        String staffWithMin = null;
+    private static Employee staffWithMinSalary(Employee[] employer) {
+        Employee staffWithMin = null;
         int minSalary = 1000000000;
         int i;
         for (i = 0; i < employer.length; i++) {
-            if (Employee.employer[i] != null) {
-                if (Employee.employer[i].getSalary() < minSalary) {
-                    minSalary = Employee.employer[i].getSalary();
-                    staffWithMin = Employee.employer[i];
+            if (employer[i] != null) {
+                if (employer[i].getSalary() != 0) {
+                    if (employer[i].getSalary() < minSalary) {
+                        minSalary = employer[i].getSalary();
+                        staffWithMin = employer[i];
+                    }
                 }
             }
         }
         return staffWithMin;
-        }
+    }
 
-        public static String staffWithMaxSalary() {
-        String staffWithMax = null;
+    public static Employee staffWithMaxSalary(Employee[] employer) {
+        Employee staffWithMax = null;
         int maxSalary = -1;
         for (int i = 0; i < employer.length; i++) {
-            if (Employee.employer[i] != null) {
-                if (Employee.employer[i].getSalary() > maxSalary) {
-                    maxSalary = Employee.employer[i].getSalary();
-                    staffWithMax = Employee.employer[i].getSurname() + " " + Employee.employer[i].getName() + " " + Employee.employer[i].getSecondName() + ", имеющий зарплату " + Employee.employer[i].getSalary() + " руб.";
+            if (employer[i] != null) {
+                if (employer[i].getSalary() > maxSalary) {
+                    maxSalary = employer[i].getSalary();
+                    staffWithMax = employer[i];
                 }
             }
         }
         return staffWithMax;
-        }
+    }
 
-        private static double averageSalaryPerMonth() {
-        double average = amountOfSalaryCostsPerMonth() / employer.length;
-
+    private static double averageSalaryPerMonth(Employee[] employer) {
+        double average = amountOfSalaryCostsPerMonth(employer) / (double) employer.length;
         return average;
-        }
+    }
 
-        private static void printFullNameOfStaff() {
-            System.out.println();
-            System.out.println("Фамилия, Имя, Отчество действующих сотрудников компании:");
-            System.out.println();
-            for (int j = 0; j < employer.length; j++)
-                if (Employee.employer[j] == null) {
-                    System.out.println("Позиция вакантна.");
-                } else {
-                    System.out.println(Employee[j].getSurname() + " " + Employee.employer[j].getName() + " " + Employee.employer[j].getSecondName() + ".");
-                }
+    private static void printFullNameOfStaff(Employee[] employer) {
+        System.out.println();
+        System.out.println("Фамилия, Имя, Отчество действующих сотрудников компании:");
+        System.out.println();
+        for (int i = 0; i < employer.length; i++) {
+            if (employer[i] != null) {
+                System.out.println(employer[i].getSurname() + " " + employer[i].getName() + " " + employer[i].getSecondName() + ".");
+            }
         }
-        */
+    }
+
 }

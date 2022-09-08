@@ -59,6 +59,6 @@ public class Employee {
                 "3. Отчество: " + secondName + '\n' +
                 "4. Отдел: " + companyBranch + '\n' +
                 "5. Зарплата " + (int) salary +
-                '.' + '\n' + "6. ID сотрудника: " + idOfEmployee;
+                '.';
     }
 }
