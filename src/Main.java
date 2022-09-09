@@ -1,8 +1,6 @@
 public class Main {
-
+    static Employee[] employer = new Employee[10];
     public static void main(String[] args) {
-
-        Employee[] employer = new Employee[10];
 
         employer[0] = new Employee("Иванов", "Иван", "Иванович", "1", 51_500);
         employer[1] = new Employee("Петров", "Пётр", "Петрович", "5", 112_300);
